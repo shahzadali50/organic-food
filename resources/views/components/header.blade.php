@@ -35,6 +35,7 @@
                         <a href="{{ route('features') }}" class="dropdown-item">Our Features</a>
                         <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a>
                         <a href="{{ route('404') }}" class="dropdown-item">404 Page</a>
+                        <a href="{{ route('cart') }}" class="dropdown-item">Cart</a>
                     </div>
                 </div>
                 <a href="{{ route('contact.us') }}" class="nav-item nav-link">Contact Us</a>

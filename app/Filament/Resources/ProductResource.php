@@ -21,7 +21,7 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
     public static function form(Form $form): Form
     {
@@ -29,7 +29,14 @@ class ProductResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('product name'),
+                    TextInput::make('price')
+                    ->required()
+                    ->numeric(),
+                    TextInput::make('qty')
+                    ->required()
+                    ->numeric(),
                TextInput::make('description')
                     ->required()
                     ->maxLength(255),
@@ -43,9 +50,7 @@ class ProductResource extends Resource
                     ->preserveFilenames(),
 
 
-                TextInput::make('price')
-                    ->required()
-                    ->numeric()
+
 
             ]);
     }
@@ -59,11 +64,14 @@ class ProductResource extends Resource
                 ->height(70),
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('description')
-                    ->searchable(),
+
+                TextColumn::make('qty')
+                    ->sortable(),
                 TextColumn::make('price')
                     ->money()
                     ->sortable(),
+                    TextColumn::make('description')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <x-head/>
 
 <body>
