@@ -11,4 +11,8 @@
   <!-- Template Javascript -->
   <script src="{{ url('assets/js/main.js') }}"></script>
 
- 
+  @stack('addToCartAjax')
+
+
+
+
