@@ -21,13 +21,14 @@
 
                             @if(!empty($cartContent))
                             @foreach ($cartContent as $item )
+
                           <tr>
-                            <td><img src="{{ asset('storage/'. $item->image) }}" alt="not-show"></td>
+                            <td><img  width="80" height="80" src="{{ url('storage/'.  $item->options[0]) }}" alt="not-show"></td>
                             <td>{{$item->name}}</td>
                             <td> ${{$item->price}}</td>
                             <td>
-                                <input class="form-control" type="number" value="{{$item->qty}}">
-                                {{-- {{$item->qty}} --}}
+                                <input class="form-control"  type="number" value="{{$item->qty}}">
+                                {{-- {{$item->qty}} --}}    
                             </td>
                             <td> ${{$item->price * $item->qty}}</td>
                           <td>  <button class="btn btn-danger">remove</button></td>
