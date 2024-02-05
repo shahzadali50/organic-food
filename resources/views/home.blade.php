@@ -325,7 +325,7 @@
           method:"post",
 
           data:{id:id,
-              _token: csrfToken,},
+              _token: csrfToken},
           dataType:"json",
           success:function(response){
               if(response.status==true){
