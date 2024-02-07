@@ -56,12 +56,14 @@ class CartController extends Controller
     public function cart()
     {
         $cartContent = Cart::content();
+        // return $cartContent;
         //dd($cartContent);
-      //  $data['cartContent'] =$cartContent;
-        return view('cart', ['cartContent'=>$cartContent]);
+        //  $data['cartContent'] =$cartContent;
+        return view('cart', compact('cartContent'));
     }
 
-    public function updateCart(Request $request){
+    public function updateCart(Request $request)
+    {
         $rowId = $request->rowId;
         $qty = $request->qty;
 
@@ -88,23 +90,24 @@ class CartController extends Controller
         ]);
     }
 
-    public function deleteItem(Request $request){
+    public function deleteItem(Request $request)
+    {
         $itemInfo = Cart::get($request->rowId);
-         if( $itemInfo==null){
-            $errorMessage =' Item not found in cart';
+        if ($itemInfo == null) {
+            $errorMessage = ' Item not found in cart';
             session()->flash('error', $errorMessage);
             return response()->json([
                 'status' => false,
-                'message' =>  $errorMessage,
+                'message' => $errorMessage,
             ]);
 
-         }
-         Cart::remove($request->rowId);
-         $message = 'Item deleted successfully from cart';
-         session()->flash('success', $message);
-         return response()->json([
+        }
+        Cart::remove($request->rowId);
+        $message = 'Item deleted successfully from cart';
+        session()->flash('success', $message);
+        return response()->json([
             'status' => true,
-            'message' =>  $message,
+            'message' => $message,
         ]);
 
 
@@ -112,4 +115,3 @@ class CartController extends Controller
 
 
 }
-

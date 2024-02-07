@@ -40,7 +40,6 @@
                         </thead>
                         <tbody>
 
-                            @if(!empty($cartContent))
                             @foreach ($cartContent as $item )
 
                             <tr>
@@ -65,11 +64,10 @@
                                 </td>
                                 <td> ${{$item->price * $item->qty}}</td>
                                 <td>
-                                     <button onclick="deleteItem('{{ $item->rowId  }}')" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                    </td>
+                                    <button onclick="deleteItem('{{ $item->rowId  }}')" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                </td>
                             </tr>
                             @endforeach
-                            @endif
 
                         </tbody>
                     </table>
