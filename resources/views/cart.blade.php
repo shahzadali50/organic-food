@@ -11,7 +11,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
 
-
                 </div>
                 @endif
                 @if( Session::has('error'))
@@ -21,9 +20,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
 
-
                 </div>
                 @endif
+
+                @if(Cart::count() > 0)
+
+
 
                 <div class="col-lg-7 col-12">
                     <table class="table">
@@ -96,6 +98,15 @@
                         <button class="btn  btn-success"> Proceed to Checkout</button>
                     </div>
                 </div>
+                @else
+                <div class="col-12">
+                    <div class="card ">
+                        <div class="card-header py-4">
+                            <h3>Your card is Empty !</h3>
+                        </div>
+                    </div>
+                </div>
+                @endif
 
             </div>
         </div>
@@ -169,7 +180,6 @@
                 }
             });
         }
-
     }
 
 </script>

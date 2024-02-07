@@ -277,6 +277,7 @@
 
 .product-item img {
     transition: .5s;
+    height: 210px;
 }
 
 .product-item:hover img {
