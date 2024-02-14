@@ -15,7 +15,7 @@
                 @csrf
                 <div class="row">
 
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-6 col-12">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-header mb-4 border">
@@ -37,31 +37,43 @@
                                 <input name="customer_address" id="Address" type="text" class="form-control" placeholder="Enter Full Address">
                             </div>
                             <div class="col-12">
-                                <button class="btn  btn-success btn-lg w-100"> Submit</button>
+                                <button type="submit" class="btn  btn-success btn-lg w-100"> Submit</button>
 
                             </div>
                         </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-lg-6 col-12">
                         <div class="card py-5 px-4" style="border: none;box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;">
                             <div class="text-center card-header">
                                 <h3 class="text-secondary">Your Order</h3>
                             </div>
                             <table class="table">
                                 <thead>
+                                    <tr class="">
+
+
+                                        <th scope="col">Items</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">QTY</th>
+                                        <th scope="col">Total</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @foreach ($cartContent as $item )
 
                                     <tr>
                                         <td><img width="50" height="50" src="{{ url('storage/'.  $item->options[0]) }}" alt="not-show"></td>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->id}}</td>
+
+
                                         <td> {{$item->qty}}</td>
+                                        <td> {{$item->price}}</td>
                                         <td> Rs {{$item->price * $item->qty}}</td>
                                     </tr>
                                     @endforeach
                                     @foreach ($cartContent as $item )
 
-                                    <tr>
+                                    <tr style="display: none;">
                                         <td>
 
                                             <label for="">id</label>
@@ -79,24 +91,25 @@
                                         <td>
                                             <label for="">product_price</label>
                                             <input readonly name="product_price[]" class="form-control" type="text" value="{{$item->price}}"></td>
-                                       
+
 
 
 
                                     </tr>
                                     @endforeach
 
+
                                     <tr>
                                         <th scope="col">Sub Total</th>
                                         <th scope="col">Rs {{Cart::subTotal() }}</th>
-                                        <td><input readonly name="sub_total" class="form-control" type="text" value="{{Cart::subTotal() }}"></td>
+                                        <td><input hidden readonly name="sub_total" class="form-control" type="text" value="{{Cart::subTotal() }}"></td>
                                     </tr>
                                     <tr>
                                         <th scope="col">Grand Total</th>
                                         <th scope="col">Rs {{Cart::subTotal() }}</th>
-                                        <td><input readonly name="grand_total" class="form-control" type="text" value="{{Cart::subTotal() }}"></td>
+                                        <td><input hidden readonly name="grand_total" class="form-control" type="text" value="{{Cart::subTotal() }}"></td>
                                     </tr>
-                                </thead>
+                                </tbody>
 
                             </table>
                         </div>

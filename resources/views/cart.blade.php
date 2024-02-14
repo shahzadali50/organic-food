@@ -67,10 +67,13 @@
                                     <button onclick="deleteItem('{{ $item->rowId  }}')" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
+
                             @endforeach
 
                         </tbody>
                     </table>
+                    <a href="{{ route('home') }}" class="btn  btn-success"> <i class="fa fa-shopping-cart text-white" aria-hidden="true"></i> Continue shopping</a>
+
 
                 </div>
                 <div class="col-lg-5 col-12">
