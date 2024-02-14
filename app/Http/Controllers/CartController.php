@@ -41,7 +41,8 @@ class CartController extends Controller
                 $status = false;
                 $message = $product->name . ' Already Added in cart';
             }
-        } else {
+        }
+        else {
             Cart::add($product->id, $product->name, 1, $product->price, [$product->image]);
             $status = true;
             $message = $product->name . ' Added in cart';
@@ -76,7 +77,8 @@ class CartController extends Controller
             Cart::update($rowId, $qty);
             $message = 'Cart updated successfully';
             $status = true;
-        } else {
+        }
+        else {
             // If product not found or requested quantity exceeds available quantity
             $message = 'Requested quantity (' . $qty . ') not available in stock. Cart not updated.';
             $status = false;
@@ -112,6 +114,15 @@ class CartController extends Controller
 
 
     }
+    // checkout
+
+    public function checkout()
+    {
+        $cartContent = Cart::content();
+        return view('checkout', compact('cartContent'));
+    }
+
+
 
 
 }

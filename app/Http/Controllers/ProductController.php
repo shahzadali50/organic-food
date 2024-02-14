@@ -12,7 +12,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        Flashy::message('Welcome To Home Page');
         return view('home',compact('products'));
 
     }

@@ -25,8 +25,6 @@
 
                 @if(Cart::count() > 0)
 
-
-
                 <div class="col-lg-7 col-12">
                     <table class="table">
                         <thead>
@@ -47,7 +45,7 @@
                             <tr>
                                 <td><img width="80" height="80" src="{{ url('storage/'.  $item->options[0]) }}" alt="not-show"></td>
                                 <td>{{$item->name}}</td>
-                                <td> ${{$item->price}}</td>
+                                <td> Rs {{$item->price}}/-</td>
                                 <td class="d-flex" style="width: 180px">
                                     <div>
                                         <button style="height: 35px;" class="btn btn-success sub" data-id="{{ $item->rowId }}">
@@ -64,7 +62,7 @@
 
                                     </div>
                                 </td>
-                                <td> ${{$item->price * $item->qty}}</td>
+                                <td> Rs {{$item->price * $item->qty}}/-</td>
                                 <td>
                                     <button onclick="deleteItem('{{ $item->rowId  }}')" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
                                 </td>
@@ -85,24 +83,26 @@
                                 <tr>
 
                                     <th scope="col">Subtotal</th>
-                                    <th scope="col">${{Cart::subTotal() }}</th>
+                                    <th scope="col">Rs {{Cart::subTotal() }}/-</th>
 
                                 </tr>
                                 <tr>
                                     <th scope="col">Total</th>
-                                    <th scope="col">${{Cart::subTotal() }}</th>
+                                    <th scope="col">Rs {{Cart::subTotal() }}/-</th>
                                 </tr>
                             </thead>
 
                         </table>
-                        <button class="btn  btn-success"> Proceed to Checkout</button>
+                        <a href="{{ route('checkout') }}" class="btn  btn-success"><i class="fa fa-lock" aria-hidden="true"></i> Proceed to Checkout</a>
                     </div>
                 </div>
                 @else
                 <div class="col-12">
                     <div class="card ">
                         <div class="card-header py-4">
-                            <h3>Your card is Empty !</h3>
+                            <h5>Your cart is Empty !</h5>
+                            <a href="{{ route('home') }}" class="btn  btn-success"> <i class="fa fa-shopping-cart text-white" aria-hidden="true"></i> Continue shopping</a>
+
                         </div>
                     </div>
                 </div>
