@@ -22,16 +22,14 @@ class OrderController extends Controller
         $orderID = $order->id;
 
         // Check if product_id exists in the request and is an array
-        if ($request->has('product_id') && is_array($request->product_id)) {
-            foreach ($request->product_id as $key => $value) {
-                // Use $value instead of $request->rowId
-                $orderItem = OrderItem::create([
-                    'order_id' => $orderID,
-                    'product_id' => $value,
-                    'product_qty' => $request->product_qty[$key],
-                    'product_price' => $request->product_price[$key],
-                ]);
-            }
+        foreach ($request->product_id as $key => $value) {
+            // Use $value instead of $request->rowId
+            $orderItem = OrderItem::create([
+                'order_id' => $orderID,
+                'product_id' => $request->product_id[$key],
+                'product_qty' => $request->product_qty[$key],
+                'product_price' => $request->product_price[$key],
+            ]);
         }
 
         flashy()->info('Order will be Generated Successfully. ✅', '#');
