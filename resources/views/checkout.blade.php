@@ -45,7 +45,7 @@
                     <div class="col-6">
                         <div class="card py-5 px-4" style="border: none;box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;">
                             <div class="text-center card-header">
-                                <h3 class="text-secondary">Your Oder</h3>
+                                <h3 class="text-secondary">Your Order</h3>
                             </div>
                             <table class="table">
                                 <thead>
