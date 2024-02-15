@@ -11,6 +11,7 @@
 <section style="margin: 40px 0px;">
     <div class="container-xxl mt-5 py-6">
         <div class="container">
+            @if(auth()->check())
             <form action="{{ route('order.generate') }}" method="POST">
                 @csrf
                 <div class="row">
@@ -26,17 +27,22 @@
                             </div>
                             <div class="col-lg-6 col-12 mb-3">
                                 <label class="mb-2 h6" for="name">Enter Full Name</label>
-                                <input name="customer_name" id="name" type="text" class="form-control" placeholder="Enter Full Name">
+                                <input name="customer_name" id="name" type="text" class="form-control" placeholder="Enter Full Name" required>
                             </div>
                             <div class=" col-lg-6 col-12 mb-3">
                                 <label class="mb-2 h6" for="Phone"> Enter Phone No</label>
-                                <input name="customer_phone" id="Phone" type="number" class="form-control" placeholder="Enter Phone No">
+                                <input name="customer_phone" id="Phone" type="number" class="form-control" placeholder="Enter Phone No" required>
                             </div>
                             <div class=" col-12 mb-3">
                                 <label class="mb-2 h6" for="Address"> Enter Full Address</label>
-                                <input name="customer_address" id="Address" type="text" class="form-control" placeholder="Enter Full Address">
+                                <input name="customer_address" id="Address" type="text" class="form-control" placeholder="Enter Full Address" required>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 mt-3">
+                                <strong>Cash On Delivery 🚚</strong>
+
+
+                            </div>
+                            <div class="col-12 mt-3">
                                 <button type="submit" class="btn  btn-success btn-lg w-100"> Submit</button>
 
                             </div>
@@ -105,6 +111,10 @@
                                         <td><input hidden readonly name="sub_total" class="form-control" type="text" value="{{Cart::subTotal() }}"></td>
                                     </tr>
                                     <tr>
+                                        <td>Delivery Charges</td>
+                                        <td>Rs :00.00</td>
+                                    </tr>
+                                    <tr>
                                         <th scope="col">Grand Total</th>
                                         <th scope="col">Rs {{Cart::subTotal() }}</th>
                                         <td><input hidden readonly name="grand_total" class="form-control" type="text" value="{{Cart::subTotal() }}"></td>
@@ -118,6 +128,16 @@
 
                 </div>
             </form>
+            @else
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-header py-4">
+                        <h5>Please create an account to place an order.</h5>
+                        <a href="{{ route('register') }}" class="btn  btn-success">SignUp</a>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 

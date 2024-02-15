@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderItem;
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class OrderController extends Controller
 {
@@ -33,7 +34,10 @@ class OrderController extends Controller
         }
 
         flashy()->info('Order will be Generated Successfully. ✅', '#');
-        return redirect()->route('cart');
+
+        Cart::destroy();
+        return view('order-message');
+        // return redirect()->route('order.message');
     }
 
 }

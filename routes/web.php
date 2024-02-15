@@ -1,10 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserMessage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserMessageController;
 
 Route::get('/', function () {
     return view('home');
@@ -28,3 +31,5 @@ Route::post('/delete-item', [CartController::class, 'deleteItem'])->name('front.
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 // OrderGenerate
 Route::post('/OrderGenerate', [OrderController::class, 'oderGenerate'])->name('order.generate');
+// UserMessage
+Route::post('/user/message', [UserMessageController::class, 'userMessage'])->name('user.message');
