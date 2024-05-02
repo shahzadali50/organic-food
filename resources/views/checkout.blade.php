@@ -72,8 +72,8 @@
                                         <td><img width="50" height="50" src="{{ url('storage/'.  $item->options[0]) }}" alt="not-show"></td>
 
 
-                                        <td> {{$item->qty}}</td>
                                         <td> {{$item->price}}</td>
+                                        <td> {{$item->qty}}</td>
                                         <td> Rs {{$item->price * $item->qty}}</td>
                                     </tr>
                                     @endforeach

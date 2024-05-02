@@ -43,12 +43,14 @@
                  @auth
 
                  <div class="nav-item dropdown">
-                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> {{ Auth::user()->name }}</a>
+                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                         {{ Auth::user()->name }}</a>
                      <div class="dropdown-menu m-0">
                          {{-- <a href="{{ route('profile.show') }}" class="dropdown-item">Profile</a> --}}
                          <form method="POST" action="{{ route('logout') }}">
                              @csrf
-                             <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                             <a href="{{ route('logout') }}" class="dropdown-item"
+                                 onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                          </form>
                      </div>
                  </div>
@@ -60,7 +62,8 @@
                      <a href="{{ route('profile.show') }}" class="dropdown-item">Profile</a>
                      <form method="POST" action="{{ route('logout') }}">
                          @csrf
-                         <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                         <a href="{{ route('logout') }}" class="dropdown-item"
+                             onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
                      </form>
                  </div>
              </div> --}}
@@ -79,9 +82,8 @@
          <div class="d-none d-lg-flex ms-2">
 
              <a class="btn-sm-square bg-white rounded-circle ms-3" href="{{ route('cart') }}">
-                
-                 <small> <i class="fa fa-shopping-cart text-dark" aria-hidden="true"></i></small>
 
+                 <small> <i class="fa fa-shopping-cart text-dark" aria-hidden="true"></i></small>
 
              </a>
          </div>

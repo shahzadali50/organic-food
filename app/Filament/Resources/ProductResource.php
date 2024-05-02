@@ -62,6 +62,8 @@ class ProductResource extends Resource
                 ImageColumn::make('image')
                 ->width(70)
                 ->height(70),
+                TextColumn::make('id')
+                    ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
 
