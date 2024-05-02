@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\OrderItem;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -31,6 +32,10 @@ class OrderController extends Controller
                 'product_qty' => $request->product_qty[$key],
                 'product_price' => $request->product_price[$key],
             ]);
+             // Decrease the quantity of the product
+        $product = Product::find($request->product_id[$key]);
+        $product->qty -= $request->product_qty[$key];
+        $product->save();
         }
 
         flashy()->info('Order will be Generated Successfully. ✅', '#');
