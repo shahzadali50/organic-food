@@ -72,7 +72,7 @@ class CartController extends Controller
         $itemInfo = Cart::get($rowId);
         $product = Product::find($itemInfo->id);
 
-        if ($product && $qty <= $product->qty) {
+        if ($product && $qty < $product->qty) {
             // If product is found and requested quantity is less than or equal to available quantity
             Cart::update($rowId, $qty);
             $message = 'Cart updated successfully';

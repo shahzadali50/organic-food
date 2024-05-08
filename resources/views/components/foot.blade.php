@@ -7,6 +7,7 @@
   <script src="{{ url('assets/lib/easing/easing.min.js') }}"></script>
   <script src="{{ url('assets/lib/waypoints/waypoints.min.js') }}"></script>
   <script src="{{ url('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Template Javascript -->
   <script src="{{ url('assets/js/main.js') }}"></script>
