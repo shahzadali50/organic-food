@@ -54,7 +54,7 @@
                                                     </button>
 
                                                 </div>
-                                                <input style="height: 35px;" class="form-control" type="number"
+                                                <input readonly style="height: 35px;" class="form-control" type="number"
                                                     value="{{ $item->qty }}">
                                                 <div>
 
@@ -169,7 +169,7 @@
 
                         Swal.fire({
                             icon: "error",
-                            title: "Not Avaible Stock",
+                            title: "Not Available Stock",
                             text: "Something went wrong!",
                             footer: response.message,
                             didClose: function() {
